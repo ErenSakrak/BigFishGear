@@ -1,0 +1,89 @@
+@model bigSales.Models.Product
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Başarılı!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @TempData["SuccessMessage"]
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Tamam</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#successModal').modal('show');
+        });
+    </script>
+}
+
+<h1>Ürün Düzenle</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" /> 
+
+    <div class="form-group">
+        <label for="Name">Ürün Adı</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span> 
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Fiyat</label>
+        <input type="number" asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span> 
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Açıklama</label>
+        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span> 
+    </div>
+
+    <div class="form-group">
+        <label>Kategori</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+            <option value="">Kategori Seçin</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span> 
+    </div>
+
+    <div class="form-group">
+        <label>Mevcut Ürün Görseli</label>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+                <img src="@Model.ImagePath" alt="Ürün Görseli" style="max-width: 200px; max-height: 200px;" />
+            }
+            else
+            {
+                <p>Görsel yüklenmemiş.</p>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Image">Yeni Ürün Görseli</label>
+        <input type="file" name="Image" class="form-control" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+<a asp-controller="Admin" asp-action="List" class="btn btn-secondary">Listeye Dön</a>

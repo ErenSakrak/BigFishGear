@@ -1,0 +1,98 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin-bottom: 60px;  /* Footer için alan bırak */
+  padding-left: 50px;   /* Sol boşluk */
+  padding-right: 50px;  /* Sağ boşluk */
+  height: 100%;
+}
+
+/* Admin paneli görünürse, 2 sütun genişliğinde olmalı */
+#adminSidebar {
+  position: fixed; /* Fixed, sayfayı kaydırırken sabit kalır */
+  top: 0;
+  left: 0;
+  width: 250px;
+  background-color: #343a40;
+  color: white;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+  height: 100vh; /* Sidebar'ın tüm sayfayı kapsaması */
+  z-index: 999; /* Diğer öğelerin üstünde olması için */
+}
+
+#adminSidebar ul {
+  padding-left: 0;
+  list-style-type: none; /* Listeyi düzgün yapmak için */
+}
+
+#adminSidebar .nav-item {
+  padding: 10px;
+}
+
+#adminSidebar .nav-link {
+  color: white;
+  display: block; /* Buton gibi davranması için */
+  padding: 10px;
+}
+
+#adminSidebar .nav-link:hover {
+  background-color: #575757;
+}
+
+/* Admin paneli yoksa, sayfa tam genişlikte */
+.main-content {
+  margin-left: 0; /* Admin paneli yoksa, sağdaki alan genişler */
+  transition: margin-left 0.3s ease; /* Slider açılıp kapanınca smooth geçiş */
+}
+
+/* Admin paneli göründüğünde, içerik alanı sola kayacak */
+#adminSidebar + .main-content {
+  margin-left: 250px;
+}
+
+/* Sidebar'ın kapanması ve açılması için */
+#adminSidebar.collapsed {
+  width: 60px; /* Sidebar daralacak */
+}
+
+#adminSidebar.collapsed .nav-link {
+  text-align: center; /* Link metnini ortala */
+  padding: 20px 5px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Footer kısmı */
+#logout-section {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+/* Alt kısmın düzenlenmesi */
+#logout-section h5 {
+  margin-bottom: 10px;
+}
+
+#logout-section form {
+  display: inline-block;
+  width: 100%;
+  max-width: 250px; /* Butonun genişliğini sınırlamak */
+}

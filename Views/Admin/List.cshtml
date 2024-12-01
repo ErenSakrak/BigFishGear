@@ -1,0 +1,96 @@
+@model IEnumerable<bigSales.Models.Product>
+
+    @{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <script src="~/js/cart.js"></script>
+    <link rel="stylesheet" href="~/css/cart.css">
+
+    <h2>Ürün Listesi</h2>
+
+
+
+    @if (User.IsInRole("Admin"))
+    {
+    <a asp-controller="Products" asp-action="Create" class="btn btn-primary mb-3">Yeni Ürün Ekle</a>
+
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Başarılı!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @TempData["SuccessMessage"]
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Tamam</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#successModal').modal('show');
+        });
+    </script>
+    }
+
+
+    <table style="text-align: center;" class="table">
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Fiyat</th>
+                <th>Görsel</th>
+                <th>Detaylar</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+                @if (User.IsInRole("Admin")) // Kullanıcı admin rolünde mi kontrolü
+                {
+                <th>Düzenle</th>
+                <th>Sil</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("C")</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(product.ImagePath))
+                    {
+                    <img src="@product.ImagePath" alt="@product.Name" style="width: 150px; height: 100px;" />
+                    }
+                    else
+                    {
+                    <span>Görsel Yok</span>
+                    }
+                </td>
+                <td><a asp-controller="Admin" asp-action="Details" asp-route-id="@product.Id">Detaylar</a></td>
+
+                @if (User.IsInRole("1"))
+                {
+                <td><a asp-controller="Admin" asp-action="Edit" asp-route-id="@product.Id"
+                        class="btn btn-warning btn-sm">Düzenle</a></td>
+                <td><a style="background-color: red;" asp-controller="Admin" asp-action="Delete"
+                        asp-route-id="@product.Id" class="btn btn-danger">Sil</a></td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    

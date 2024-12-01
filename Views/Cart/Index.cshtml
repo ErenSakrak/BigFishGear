@@ -1,0 +1,43 @@
+@model List<bigSales.Models.Product>
+
+<section class="inner_page_head">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3>Sepetim</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    @if (Model.Count == 0)
+    {
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #0171d3;"></i>
+            <p>Sepetiniz boş.</p>
+        </div>
+    }
+    else
+    {
+        <div class="cart-items">
+            @foreach (var product in Model)
+            {
+                <div class="card">
+                    <img style="width: 30%;" src="@product.ImagePath" alt="@product.Name" />
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@string.Format("{0:C}", product.Price)</p>
+                        <a asp-action="Remove" asp-route-productId="@product.Id" class="btn btn-danger">Kaldır</a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="cart-summary">
+            <h3>Toplam: @string.Format("{0:C}", Model.Sum(p => p.Price))</h3>
+            <a asp-action="Checkout" class="btn btn-primary">Ödeme Yap</a>
+        </div>
+    }
+</div>

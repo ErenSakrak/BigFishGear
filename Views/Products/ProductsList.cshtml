@@ -1,0 +1,64 @@
+@model IEnumerable<bigSales.Models.Product>
+
+   @{
+   Layout = "~/Views/Shared/_Layout.cshtml"; // Kullanıcılar için genel layout
+   }
+
+   <section class="inner_page_head">
+      <div class="container_fuild">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="full">
+                  <h3>Olta Ekipmanları</h3>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <div class="three_box">
+      <div class="container">
+         <div style="row-gap: 15px;" class="row">
+            <div class="col-md-4">
+               <a asp-controller="Category" asp-action="Rods" class="allrods">
+                  <div class="box_text">
+                     <i><img style="width: 100%;max-width: 200px;" src="~/images/rod.png" alt="#" /></i>
+                     <h3>Olta Kamışları</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. </p>
+                  </div>
+               </a>
+            </div>
+            <div class="col-md-4">
+               <a asp-controller="Category" asp-action="Reels" class="allreels">
+                  <div class="box_text">
+                     <i><img style="width: 100%;max-width: 200px;" src="~/images/reels.jpg" alt="#" /></i>
+                     <h3>Olta Makineleri</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. </p>
+                  </div>
+               </a>
+            </div>
+            <div class="col-md-4">
+               <a asp-controller="Category" asp-action="Lures" class="alllures">
+                  <div class="box_text">
+                     <i><img style="width: 100%;max-width: 300px;" src="~/images/lure.jpg" alt="#" /></i>
+                     <h3>Yemler</h3>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. </p>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <section style="padding: 0 !important;" class="product_section layout_padding">
+         <div class="container">
+            <div class="btn-box">
+               <a asp-controller="Products" asp-action="AllProducts" class="btn btn-secondary">Tüm Ürünleri Görüntüle</a>
+            </div>
+         </div>
+      </section>
+   </div>

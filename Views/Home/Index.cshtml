@@ -1,0 +1,188 @@
+﻿@model IEnumerable<bigSales.Models.Product>
+
+   @{
+   Layout = "_Layout"; // Layout.cshtml
+   }
+
+   <section class="slider_section ">
+      <div class="slider_bg_box">
+         <img src="~/images/slideback.jpg" alt="">
+      </div>
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container ">
+                  <div class="row">
+                     <div class="col-md-7 col-lg-6 ">
+                        <div class="detail-box">
+                           <h1>
+                              <span>
+                                 Yemli Balıkçılığa
+                              </span>
+                              <br>
+                              Dair Herşey
+                           </h1>
+                           <p>
+                              Yemli balıkçılık, balıkların avlanması amacıyla yemlerin kullanıldığı geleneksel bir
+                              yöntemdir. Bu yöntem, balıkların doğal davranışlarını tetikleyerek onları çekmek ve
+                              yakalamak için oldukça etkili bir yöntem olarak kullanılır. Yemli balıkçılık, hem amatör
+                              hem de ticari balıkçılar tarafından sıklıkla tercih edilir, çünkü doğru yem seçimi ve
+                              teknik kullanımı ile balık avını artırabilir.
+                           </p>
+                           <div class="btn-box">
+                              <a href="" class="btn1">
+                                 İncele
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-7 col-lg-6 ">
+                        <img style="width: 100%;" src="~/images/feederfish.jpg" alt="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item ">
+               <div class="container ">
+                  <div class="row">
+                     <div class="col-md-7 col-lg-6 ">
+                        <div class="detail-box">
+                           <h1>
+                              <span>
+                                 Spin Balıkçılığa
+                              </span>
+                              <br>
+                              Dair Herşey
+                           </h1>
+                           <p>
+                              Spin balıkçılığı, özellikle tatlı su ve deniz balıkçılığında popüler bir yöntem olup,
+                              spinners (dönme) adı verilen özel olta takımları kullanılarak yapılan bir avlanma
+                              yöntemidir. Bu teknik, balığın hareketlerine dayalı olarak avlanmayı mümkün kılar ve
+                              balıkçıya aktif bir avlanma deneyimi sunar. Spin balıkçılığı, hem amatör hem de
+                              profesyonel balıkçılar arasında sıklıkla tercih edilmektedir.
+                           </p>
+                           <div class="btn-box">
+                              <a href="" class="btn1">
+                                 İncele
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-7 col-lg-6 ">
+                        <img style="width: 100%;" src="~/images/rods.jpg" alt="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container ">
+                  <div class="row">
+                     <div class="col-md-7 col-lg-6 ">
+                        <div class="detail-box">
+                           <h1>
+                              <span>
+                                 At-Çek Yemleri
+                              </span>
+                              <br>
+                              Nasıl Kullanılır?
+                           </h1>
+                           <p>
+                              At-çek yemleri, balıkçılıkta yaygın olarak kullanılan ve oldukça etkili bir yöntem olan
+                              suni yemlerdir. Bu yemler, balıkların dikkatini çekmek ve onları yakalamak amacıyla
+                              çeşitli şekillerde tasarlanmış, su altında hareket ederek balıklara doğal bir yem izlenimi
+                              veren araçlardır. At-çek yemlerinin kullanımı, doğru teknikle yapıldığında oldukça verimli
+                              olabilir ve balıkçılara bol miktarda av şansı sunar.
+                           </p>
+                           <div class="btn-box">
+                              <a href="" class="btn1">
+                                 İncele
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-7 col-lg-6 ">
+                        <img style="width: 100%;" src="~/images/spinnerbait.jpg" alt="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <ol class="carousel-indicators">
+               <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+               <li data-target="#customCarousel1" data-slide-to="1"></li>
+               <li data-target="#customCarousel1" data-slide-to="2"></li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+   <section class="arrival_section">
+      <div class="container">
+         <div class="box">
+            <div class="arrival_bg_box">
+
+            </div>
+            <div class="row">
+               <div class="col-md-6 ml-auto">
+                  <div class="heading_container remove_line_bt">
+                     <h2>
+                        YepYeni Ürünler Burada!
+                     </h2>
+                  </div>
+                  <p style="margin-top: 20px;margin-bottom: 30px;">
+                     Sizlere en son ve en trend ürünleri sunmaktan mutluluk duyuyoruz! Yepyeni koleksiyonumuzla tanışın
+                     ve hayatınıza değer katacak yenilikleri keşfedin. Gelişen teknolojiden, şıklığa kadar her
+                     kategoride en kaliteli ve yenilikçi ürünler burada sizi bekliyor. Farklı ihtiyaçlara hitap eden
+                     ürünlerimizle, alışveriş deneyiminizi bir üst seviyeye taşıyın. Hemen göz atın, fırsatları
+                     kaçırmayın!
+                  </p>
+                  <a asp-controller="Products" asp-action="AllProducts" style="margin-bottom: 25px;" class="btn1">
+                     Daha Fazlası...
+                  </a>
+               </div>
+               <div style="display: grid; align-items: center;" class="col-md-6 ml-auto">
+                  <img style="width: 100%;" src="~/images/news.jpg" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="product_section layout_padding">
+      <div class="container">
+         <div class="heading_container heading_center">
+            <h2>Seçili <span>Ürünler</span></h2>
+         </div>
+         <div class="row">
+            @foreach (var product in Model)
+            {
+            <div class="col-sm-6 col-md-4 col-lg-3">
+               <div class="box">
+                  <div class="option_container">
+                     <div class="options">
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="option1">
+                           Ürünü İncele
+                        </a>
+                        <a asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" class="option2">
+                           Sepete Ekle
+                        </a>
+                     </div>
+                  </div>
+                  <div class="img-box">
+                     <img src="@product.ImagePath" alt="@product.Name" />
+                  </div>
+                  <div class="detail-box">
+                     <h5>@product.Name</h5>
+                     <h6 class="price">@string.Format("{0:C}", product.Price)</h6>
+                  </div>
+               </div>
+            </div>
+            }
+         </div>
+         <div class="btn-box">
+            <a asp-controller="Products" asp-action="AllProducts" class="btn btn-secondary">Tüm Ürünleri Görüntüle</a>
+         </div>
+      </div>
+   </section>
+
