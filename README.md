@@ -27,3 +27,20 @@ This project is a fully functional e-commerce website designed for selling fishi
 ### Database  
 
 - Microsoft SQL Server  
+
+## Required Packages  
+
+To run this project, you need to install the following NuGet packages:  
+
+- `Microsoft.EntityFrameworkCore` (version 8.0.3)  
+- `Microsoft.EntityFrameworkCore.Design` (version 8.0.3)  
+- `Microsoft.EntityFrameworkCore.SqlServer` (version 8.0.3)  
+- `Microsoft.EntityFrameworkCore.Tools` (version 8.0.3)  
+
+You can install them using the **NuGet Package Manager** in Visual Studio or by running the following commands in the **Package Manager Console**:  
+
+```powershell
+Install-Package Microsoft.EntityFrameworkCore -Version 8.0.3
+Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.3
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 8.0.3
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.3
